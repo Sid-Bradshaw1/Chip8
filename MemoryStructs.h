@@ -11,6 +11,7 @@
 #define STACK_SIZE 8
 #define FRAME_BUFFER_ROW_SIZE 8
 #define FRAME_BUFFER_COL_SIZE 4
+#define ADRESSABLE_MEMORY_SIZE 512
 
 
 typedef struct
@@ -35,34 +36,52 @@ typedef struct
 
 typedef struct
 {
-    int8_t array[STACK_SIZE];
+    int8_t data[STACK_SIZE];
     int8_t ptr;
 }Stack;
 
 typedef struct
 {
-    int16_t reg;
+    int16_t data;
 }Index;
 
 typedef struct
 {
-    int8_t time;
+    int8_t data;
 }DelayTimer;
 
 typedef struct
 {
-    int8_t time;
+    int8_t data;
 }SoundTimer;
 
 typedef struct
 {
-    int8_t array[FRAME_BUFFER_ROW_SIZE][FRAME_BUFFER_COL_SIZE];
+    int8_t data[FRAME_BUFFER_ROW_SIZE][FRAME_BUFFER_COL_SIZE];
 }frameBuffer;
 
 typedef struct
 {
-    int16_t
-}
+    int16_t data;
+}programCounter;
+
+typedef struct
+{
+    int8_t data[ADRESSABLE_MEMORY_SIZE];
+}adressableMemory;
+
+
+
+void initializeMemory();
+void initializeRegisters();
+void initializeStack();
+void initializeIndex();
+void initializeDelayTimer();
+void initializeSoundTimer();
+void initializeFrameBuffer();
+void initializeProgramCounter();
+void initializeAdressableMemory();
+
 
 
 #endif /* MemoryStructs_h */
